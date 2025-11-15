@@ -10,14 +10,7 @@ export default function Home() {
       <TopAlert />
 
       <HeroSection />
-      {/* <BrandsSection /> */}
-      {/* <FeaturesSection />
-      <AboutSection />
-      <ComfortSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <ImpactSection />
-      <GallerySection /> */}
+      <BrandsSection />
     </main>
   );
 }
