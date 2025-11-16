@@ -2,6 +2,7 @@ import TopAlert from "@/components/TopAlert";
 
 import HeroSection from "@/components/sections/HeroSection";
 import BrandsSection from "@/components/sections/BrandsSection";
+import AboutSection from "@/components/sections/AboutSection"
 
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
 
       <HeroSection />
       <BrandsSection />
+      <AboutSection />
     </main>
   );
 }

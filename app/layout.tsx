@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={sofiaPro.variable}
+        className={`${sofiaPro.variable} font-sans`}
       >
         {children}
       </body>

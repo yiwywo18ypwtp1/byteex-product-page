@@ -6,8 +6,8 @@ import Raiting from "@/components/Raiting";
 
 const BrandsSections = () => {
     return (
-        <section className="flex flex-col gap-6">
-            < div className="flex flex-col w-full items-center gap-3 bg-linear-to-b from-bge to-white pt-32 px-6" >
+        <section className="flex flex-col gap-6 pb-6">
+            <div className="flex flex-col w-full items-center gap-3 bg-linear-to-b from-bge to-white pt-32 px-6" >
                 <AsSeenIn />
             </div >
 
@@ -72,7 +72,7 @@ const BrandsSections = () => {
             </div>
 
             {/* desktop */}
-            <div className="hidden md:flex md:flex-row md:items-stretch md:justify-between md:pl-36 md:h-[700px] md:pt-20">
+            <div className="hidden md:flex md:flex-row md:items-stretch md:justify-between md:pl-36 md:h-[700px] md:pt-20 md:mb-20">
                 <div className="flex flex-col justify-between h-full w-130">
                     <SectionTitle text="Loungewear you can be proud of." centred={false} />
 
