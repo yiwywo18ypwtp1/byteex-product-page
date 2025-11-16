@@ -6,6 +6,11 @@ import "./globals.css";
 const sofiaPro = localFont({
   src: [
     {
+      path: "../public/fonts/SofiaProExtraLightAz.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
       path: "../public/fonts/SofiaProRegularAz.otf",
       weight: "400",
       style: "normal",

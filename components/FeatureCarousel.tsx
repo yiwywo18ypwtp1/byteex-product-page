@@ -1,50 +1,74 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
-type FeatureCarouselProps = {
+function chunk<T>(arr: T[], size: number) {
+    const out = [];
+    for (let i = 0; i < arr.length; i += size) {
+        out.push(arr.slice(i, i + size));
+    }
+    return out;
+}
+
+type Props = {
     children: ReactNode[];
     dotted?: boolean;
 };
 
-const FeatureCarousel = ({ children, dotted = false }: FeatureCarouselProps) => {
+export default function FeatureCarousel({ children, dotted = false }: Props) {
     const [index, setIndex] = useState(0);
+    const [groups, setGroups] = useState<ReactNode[][]>([]);
 
-    const prev = () =>
-        setIndex((i) => (i - 1 + children.length) % children.length);
+    useEffect(() => {
+        const update = () => {
+            if (window.innerWidth < 768) {
+                setGroups(chunk(children, 1));
+            } else {
+                setGroups(chunk(children, 3));
+            }
+        };
 
-    const next = () =>
-        setIndex((i) => (i + 1) % children.length);
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, [children]);
+
+    const prev = () => setIndex((i) => (i - 1 + groups.length) % groups.length);
+    const next = () => setIndex((i) => (i + 1) % groups.length);
+
+    if (groups.length === 0) return null;
 
     return (
-        <div className="w-full flex flex-col items-center justify-center relative">
+        <div className="w-full flex flex-col items-center gap-3 justify-center relative md:pt-10">
             <button
                 onClick={prev}
-                className="absolute left-5 md:left-20 text-2xl text-gry"
+                className="absolute left-5 md:left-35"
             >
                 <img src="/svg/arrow-prev.svg" />
             </button>
 
-            <div className="max-w-72 h-72 flex flex-col items-center justify-center text-center px-6">
-                {children[index]}
+            <div className="flex px-6 md:gap-6">
+                {groups[index].map((el, i) => (
+                    <div key={i} className="w-72 h-72 md:w-80 md:h-fit flex items-center justify-center">
+                        {el}
+                    </div>
+                ))}
             </div>
 
             <button
                 onClick={next}
-                className="absolute right-5 md:right-20 text-2xl"
+                className="absolute right-5 md:right-35"
             >
                 <img src="/svg/arrow-next.svg" />
             </button>
 
             {dotted && (
-                <div className="flex gap-2 mt-4">
-                    {children.map((_, i) => (
+                <div className="flex gap-2">
+                    {groups.map((_, i) => (
                         <span
                             key={i}
-                            className={
-                                "w-2 h-2 rounded-full transition-all " +
-                                (i === index ? "bg-gry" : "bg-gray-300 opacity-70")
-                            }
+                            className={`w-2 h-2 rounded-full transition ${i === index ? "bg-black" : "bg-gray-300"
+                                }`}
                         />
                     ))}
                 </div>
@@ -52,5 +76,3 @@ const FeatureCarousel = ({ children, dotted = false }: FeatureCarouselProps) => 
         </div>
     );
 }
-
-export default FeatureCarousel;

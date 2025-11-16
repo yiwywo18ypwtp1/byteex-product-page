@@ -1,8 +1,7 @@
 import FeatureCarousel from "@/components/FeatureCarousel";
 import InfoCard from "@/components/InfoCard";
 import SectionTitle from "@/components/SectionTitle";
-import Button from "@/components/Button";
-import Raiting from "@/components/Raiting";
+import ButtonRaitingBlock from "../ButtonRaitingBlock";
 
 
 const ComfortSection = () => {
@@ -52,10 +51,7 @@ const ComfortSection = () => {
                 />
             </div>
 
-            <div className="w-full flex flex-col items-center px-6">
-                <Button text="Customize Your Outfit" />
-                <Raiting />
-            </div>
+            <ButtonRaitingBlock />
         </section>
     );
 }

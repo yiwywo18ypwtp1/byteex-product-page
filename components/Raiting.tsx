@@ -1,12 +1,15 @@
 import RaitingStars from "./RaitingStarts";
 
-const Raiting = () => {
+const Raiting = ({ starsOnly: starsOnly = false }: { starsOnly?: boolean }) => {
     return <div className="flex gap-2">
         <RaitingStars />
 
-        <span className="text-xs text-gry">
-            One of 500+ 5 Star Reviews Online
-        </span>
+        {starsOnly
+            ? null
+            : <span className="text-xs text-gry">
+                One of 500+ 5 Star Reviews Online
+            </span>
+        }
     </div>
 }
 

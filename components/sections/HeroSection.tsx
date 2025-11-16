@@ -39,8 +39,8 @@ const HeroSection = () => {
 
                 <div className="absolute left-0 right-0 -bottom-24 flex justify-center">
                     <Review
-                        author_name="Jane S"
-                        photo_url="img/jane-s.png"
+                        authorName="Jane S"
+                        photoUrl="img/jane-s.png"
                         text="Overjoyed with my Loungewear set. I have the jogger and the sweatshirt. Quality product on every level. From the compostable packaging, to the supplied washing bag, even the garments smells like fresh herbs when I first held them."
                     />
                 </div>
@@ -77,8 +77,8 @@ const HeroSection = () => {
 
                     <div className="absolute left-38 right-0 -bottom-24 flex justify-center md:justify-start">
                         <Review
-                            author_name="Jane S"
-                            photo_url="img/jane-s.png"
+                            authorName="Jane S"
+                            photoUrl="img/jane-s.png"
                             text="Overjoyed with my Loungewear set. I have the jogger and the sweatshirt. Quality product on every level. From the compostable packaging, to the supplied washing bag, even the garments smells like fresh herbs when I first held them."
                         />
                     </div>
