@@ -3,12 +3,12 @@ import SectionTitle from "../SectionTitle";
 
 const AboutSection = () => {
     return (
-        <section className="bg-[#F0EEEF] py-10">
+        <section className="bg-lgt-gry py-10">
             <div className="w-full h-full md:hidden">
                 <SectionTitle text="Be your best self." />
 
                 <div className="flex items-center justify-center my-20 relative">
-                    <div className="bg-[#F0EEEF] p-1 absolute -top-12 left-14 z-20">
+                    <div className="bg-lgt-gry p-1 absolute -top-12 left-14 z-20">
                         <img src="img/woman-5.png" alt="" className="w-28 h-30 object-cover" />
                     </div>
 
@@ -16,7 +16,7 @@ const AboutSection = () => {
                         <img src="img/woman-7.png" alt="" className="w-60 h-78 object-cover" />
                     </div>
 
-                    <div className="bg-[#F0EEEF] p-1 absolute -bottom-12 right-14 z-20">
+                    <div className="bg-lgt-gry p-1 absolute -bottom-12 right-14 z-20">
                         <img src="img/woman-6.png" alt="" className="w-28 h-30 object-cover" />
                     </div>
                 </div>
@@ -42,7 +42,7 @@ const AboutSection = () => {
 
             <div className="hidden md:flex md:flex-row md:items-center md:px-38 md:gap-5">
                 <div className="flex items-center w-1/2 justify-center my-20 relative">
-                    <div className="bg-[#F0EEEF] p-1 absolute -top-12 left-14 z-20">
+                    <div className="bg-lgt-gry p-1 absolute -top-12 left-14 z-20">
                         <img src="img/woman-5.png" alt="" className="w-42 h-44 object-cover" />
                     </div>
 
@@ -50,7 +50,7 @@ const AboutSection = () => {
                         <img src="img/woman-7.png" alt="" className="w-95 h-144 object-cover" />
                     </div>
 
-                    <div className="bg-[#F0EEEF] p-1 absolute -bottom-12 right-14 z-20">
+                    <div className="bg-lgt-gry p-1 absolute -bottom-12 right-14 z-20">
                         <img src="img/woman-6.png" alt="" className="w-42 h-44 object-cover" />
                     </div>
                 </div>
