@@ -6,6 +6,7 @@ import AboutSection from "@/components/sections/AboutSection"
 import ComfortSection from "@/components/sections/ComfortSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
+import ImpactSection from "@/components/sections/ImpactSection";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <ComfortSection />
       <TestimonialsSection />
       <FAQSection />
+      <ImpactSection />
     </main>
   );
 }

@@ -42,3 +42,12 @@ body {
   min-height: 2.5rem;
   height: 2.5rem;
 }
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scroll-hide {
+  scrollbar-width: none;
+}

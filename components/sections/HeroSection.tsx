@@ -16,19 +16,19 @@ const HeroSection = () => {
 
                 <ul className="flex flex-col w-full px-4 gap-3 *:flex *:flex-row *:items-center *:gap-4 ">
                     <li>
-                        <div className="bg-bge p-1 rounded-full min-w-8 min-h-8 flex items-center justify-center">
+                        <div className="icon-bubble">
                             <img src="svg/weather.svg" alt="" />
                         </div>
                         <p className="text-gry text-sm">Beautiful, comfortable loungewear for day or night.</p>
                     </li>
                     <li>
-                        <div className="bg-bge p-1 rounded-full min-w-8 min-h-8 flex items-center justify-center">
+                        <div className="icon-bubble">
                             <img src="svg/cart.svg" alt="" />
                         </div>
                         <p className="text-gry text-sm">No wasteful extras, like tags or plastic packaging.</p>
                     </li>
                     <li>
-                        <div className="bg-bge p-1 rounded-full min-w-8 min-h-8 flex items-center justify-center">
+                        <div className="icon-bubble">
                             <img src="svg/waves.svg" alt="" />
                         </div>
                         <p className="text-gry text-sm">Our signature fabric is incredibly comfortable — unlike anything you’ve ever felt.</p>
