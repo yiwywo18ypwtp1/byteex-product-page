@@ -12,7 +12,7 @@ const HeroSection = () => {
 
                 <SectionTitle text="Don’t apologize for being comfortable." />
 
-                <HeroGallery />
+                <HeroGallery leftImg="woman-5" centerImg="woman-1" rightImg="woman-3" />
 
                 <ul className="flex flex-col w-full px-4 gap-3 *:flex *:flex-row *:items-center *:gap-4 ">
                     <li>
@@ -84,7 +84,7 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                <HeroGallery />
+                <HeroGallery leftImg="woman-5" centerImg="woman-1" rightImg="woman-3" />
             </div>
         </section >
     );

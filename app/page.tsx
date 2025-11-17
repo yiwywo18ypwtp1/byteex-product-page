@@ -7,6 +7,7 @@ import ComfortSection from "@/components/sections/ComfortSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ImpactSection from "@/components/sections/ImpactSection";
+import FindLoveSection from "@/components/sections/FindLoveSection";
 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <TestimonialsSection />
       <FAQSection />
       <ImpactSection />
+      <FindLoveSection />
     </main>
   );
 }
