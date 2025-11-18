@@ -1,3 +1,5 @@
+import { urlFor } from "@/lib/sanity/urlFor";
+
 type GalleryProps = {
     leftImg: string;
     centerImg: string;
@@ -14,7 +16,7 @@ const HeroGallery = ({ leftImg, centerImg, rightImg }: GalleryProps) => {
 
                 <div className="-ml-8 md:-ml-14 w-1/4 h-36 md:min-w-[200px] md:h-[310px] z-20">
                     <img
-                        src={`img/${leftImg}.png`}
+                        src={leftImg}
                         alt=""
                         className="object-cover w-full h-full"
                     />
@@ -22,7 +24,7 @@ const HeroGallery = ({ leftImg, centerImg, rightImg }: GalleryProps) => {
 
                 <div className="-ml-8 md:-ml-14 w-1/3 h-50 md:min-w-[260px] md:h-[420px] z-30">
                     <img
-                        src={`img/${centerImg}.png`}
+                        src={centerImg}
                         alt=""
                         className="object-cover w-full h-full"
                     />
@@ -30,7 +32,7 @@ const HeroGallery = ({ leftImg, centerImg, rightImg }: GalleryProps) => {
 
                 <div className="-ml-8 md:-ml-14 w-1/4 h-36 md:min-w-[200px] md:h-[310px] z-20">
                     <img
-                        src={`img/${rightImg}.png`}
+                        src={rightImg}
                         alt=""
                         className="object-cover w-full h-full"
                     />

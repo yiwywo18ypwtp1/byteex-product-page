@@ -2,122 +2,96 @@ import FeatureCarousel from "@/components/FeatureCarousel";
 import Review from "@/components/Review";
 import SectionTitle from "@/components/SectionTitle";
 import ButtonRaitingBlock from "@/components/ButtonRaitingBlock";
+import AutoScrollRow from "@/components/AutoScroll";
 
-const topRow = [
-    "img/woman-8.png",
-    "img/woman-9.png",
-    "img/woman-10.png",
-    "img/woman-11.png",
-]
+import { client } from "@/lib/sanity/client";
+import { testimonialsQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/urlFor";
 
-const bottomRow = [
-    "img/woman-12.png",
-    "img/woman-13.png",
-    "img/woman-14.png",
-    "img/woman-15.png",
-]
 
-const topRowDesk = [
-    "img/woman-8.png",
-    "img/woman-9.png",
-    "img/woman-13.png",
-    "img/woman-14.png",
-    "img/woman-10.png",
-    "img/woman-11.png",
-    "img/woman-8.png",
-    "img/woman-9.png",
-    "img/woman-14.png",
-    "img/woman-15.png",
-    "img/woman-12.png",
-]
+const TestimonialsSection = async () => {
+    const data = await client.fetch(testimonialsQuery);
 
-const bottomRowDesk = [
-    "img/woman-10.png",
-    "img/woman-9.png",
-    "img/woman-12.png",
-    "img/woman-8.png",
-    "img/woman-13.png",
-    "img/woman-8.png",
-    "img/woman-14.png",
-    "img/woman-11.png",
-    "img/woman-15.png",
-    "img/woman-14.png",
-    "img/woman-9.png",
-]
+    const { title, subtitle, photos, reviews } = data;
 
-const TestimonialsSection = () => {
+    const half = Math.ceil(photos.length / 2);
+    const topPhotosRow = photos.slice(0, half);
+    const bottomPhotosRow = photos.slice(half);
+
     return (
         <section className="flex flex-col items-center w-full gap-6 pb-6 md:pb-10">
-            <SectionTitle text="What our fans saying?" />
+            <SectionTitle text={title} />
 
-            <p className="text-gry text-center px-6 md:px-0 md:w-2/3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat. Fusce non nibh luctus.</p>
+            <p className="text-gry text-center px-6 md:px-0 md:w-2/3">{subtitle}</p>
 
-            <div className="flex flex-col gap-1 w-full md:hidden">
-                <div className="flex flex-row items-center justify-center gap-1">
-                    {topRow.map((src, i) => (
-                        <img
-                            key={i}
-                            src={src}
-                            className="w-25 h-25 object-cover"
-                        />
-                    ))}
-                </div>
+            <div className="flex flex-col items-start justify-center gap-1 max-w-[99%] w-full px-2 md:hidden">
+                <div className="flex flex-col gap-1 w-full overflow-x-scroll scroll-hide">
+                    <div className="flex flex-row items-center gap-1">
+                        {topPhotosRow.map((p: any, i: number) => (
+                            <div key={i}>
+                                <img
+                                    src={urlFor(p).width(300).url()}
+                                    className="w-25 h-25 min-w-25 min-h-25 object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
 
-                <div className="flex flex-row items-center justify-center gap-1">
-                    {bottomRow.map((src, i) => (
-                        <div key={i}>
-                            <img
-                                src={src}
-                                className="w-25 h-25 object-cover"
-                            />
-                        </div>
-                    ))}
+                    <div className="flex flex-row items-center gap-1">
+                        {bottomPhotosRow.map((p: any, i: number) => (
+                            <div key={i}>
+                                <img
+                                    src={urlFor(p).width(300).url()}
+                                    className="w-25 h-25 min-w-25 min-h-25 object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            <div className="hidden md:flex md:flex-col md:gap-1 md:w-full">
-                <div className="flex flex-row items-center justify-center gap-1">
-                    {topRowDesk.map((src, i) => (
-                        <img
-                            key={i}
-                            src={src}
-                            className="w-35 h-35 object-cover"
-                        />
-                    ))}
-                </div>
-
-                <div className="flex flex-row items-center justify-center gap-1">
-                    {bottomRowDesk.map((src, i) => (
-                        <div key={i}>
-                            <img
-                                src={src}
-                                className="w-35 h-35 object-cover"
-                            />
+            <div className="hidden md:flex md:flex-col md:items-center md:gap-1 md:max-w-[99%] md:w-full md:px-2">
+                <AutoScrollRow speed={0.5}>
+                    <div className="flex flex-col items-center w-full gap-1">
+                        <div className="flex flex-row items-center gap-1">
+                            {topPhotosRow.map((p: any, i: number) => (
+                                <div key={i}>
+                                    <img
+                                        src={urlFor(p).width(300).url()}
+                                        className="w-35 h-35 min-w-35 min-h-35 object-cover"
+                                    />
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+
+                        <div className="flex flex-row items-center gap-1">
+                            {bottomPhotosRow.map((p: any, i: number) => (
+                                <div key={i}>
+                                    <img
+                                        src={urlFor(p).width(300).url()}
+                                        className="w-35 h-35 min-w-35 min-h-35 object-cover"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </AutoScrollRow>
             </div>
 
             <FeatureCarousel dotted>
-                <Review
-                    authorName="Jane S"
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo. Aenean eget aliquet mi."
-                    starsOnly={true}
-                />
-                <Review
-                    authorName="Jane S"
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo. Aenean eget aliquet mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales."
-                    starsOnly={true}
-                />
-                <Review
-                    authorName="Jane S"
-                    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo. Aenean eget aliquet mi."
-                    starsOnly={true}
-                />
+                {reviews.map((r: any) => (
+                    <Review
+                        key={r}
+                        authorName={r.name}
+                        photoUrl={r.photo ? urlFor(r.photo).url() : undefined}
+                        text={r.text}
+                        starsOnly={true}
+                    />
+                ))}
             </FeatureCarousel>
 
             <ButtonRaitingBlock />
-        </section>
+        </section >
     );
 }
 

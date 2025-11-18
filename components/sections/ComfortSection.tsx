@@ -14,19 +14,19 @@ const ComfortSection = () => {
                     <InfoCard
                         title="You save."
                         text="Browse our comfort sets and save 15% when you bundle."
-                        icon_url="svg/cart.svg"
+                        iconUrl="svg/cart.svg"
                     />
 
                     <InfoCard
                         title="We ship."
                         text="We ship your items within 1-2 days of receiving your order."
-                        icon_url="svg/delivery.svg"
+                        iconUrl="svg/delivery.svg"
                     />
 
                     <InfoCard
                         title="You enjoy."
                         text="Wear hernest around the house, out on the town, or in bed."
-                        icon_url="svg/weather.svg"
+                        iconUrl="svg/weather.svg"
                     />
                 </FeatureCarousel>
             </div>
@@ -35,19 +35,19 @@ const ComfortSection = () => {
                 <InfoCard
                     title="You save."
                     text="Browse our comfort sets and save 15% when you bundle."
-                    icon_url="svg/cart.svg"
+                    iconUrl="svg/cart.svg"
                 />
 
                 <InfoCard
                     title="We ship."
                     text="We ship your items within 1-2 days of receiving your order."
-                    icon_url="svg/delivery.svg"
+                    iconUrl="svg/delivery.svg"
                 />
 
                 <InfoCard
                     title="You enjoy."
                     text="Wear hernest around the house, out on the town, or in bed."
-                    icon_url="svg/weather.svg"
+                    iconUrl="svg/weather.svg"
                 />
             </div>
 

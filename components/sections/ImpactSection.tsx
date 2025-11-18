@@ -11,7 +11,7 @@ const ImpactSection = () => {
                 <Divider />
 
                 <ImpactCard
-                    svg="co2"
+                    svgUrl="svg/co2.svg"
                     title="3,927 kg"
                     text="of CO2 saved"
                 />
@@ -19,7 +19,7 @@ const ImpactSection = () => {
                 <Divider />
 
                 <ImpactCard
-                    svg="h2o"
+                    svgUrl="svg/h2o.svg"
                     title="2,546,167 days"
                     text="of drinking water saved"
                 />
@@ -27,7 +27,7 @@ const ImpactSection = () => {
                 <Divider />
 
                 <ImpactCard
-                    svg="energy"
+                    svgUrl="svg/energy.svg"
                     title="7,321 kWh"
                     text="of energy saved"
                 />
@@ -39,7 +39,7 @@ const ImpactSection = () => {
                 <Divider vertical />
 
                 <ImpactCard
-                    svg="co2"
+                    svgUrl="svg/co2.svg"
                     title="3,927 kg"
                     text="of CO2 saved"
                 />
@@ -47,7 +47,7 @@ const ImpactSection = () => {
                 <Divider vertical />
 
                 <ImpactCard
-                    svg="h2o"
+                    svgUrl="svg/h2o.svg"
                     title="2,546,167 days"
                     text="of drinking water saved"
                 />
@@ -55,7 +55,7 @@ const ImpactSection = () => {
                 <Divider vertical />
 
                 <ImpactCard
-                    svg="h2o"
+                    svgUrl="svg/h2o.svg"
                     title="2,546,167 days"
                     text="of drinking water saved"
                 />

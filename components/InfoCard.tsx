@@ -3,10 +3,10 @@ import SectionTitle from "./SectionTitle";
 type CardProps = {
     text: string;
     title: string;
-    icon_url: string;
+    iconUrl: string;
 }
 
-const InfoCard = ({ text, title, icon_url }: CardProps) => {
+const InfoCard = ({ text, title, iconUrl }: CardProps) => {
     return (
         <div className="relative bg-lgt-gry rounded-lg w-70 h-70 md:w-80 md:h-80 flex flex-col px-5 py-16">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
@@ -14,7 +14,7 @@ const InfoCard = ({ text, title, icon_url }: CardProps) => {
             </div>
 
             <div className="flex justify-center">
-                <img src={icon_url} alt="" className="min-w-8 min-h-8" />
+                <img src={iconUrl} alt="" className="min-w-8 min-h-8" />
             </div>
 
             <div className="flex justify-center mt-auto text-center">
