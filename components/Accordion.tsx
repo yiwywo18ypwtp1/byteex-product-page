@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 
-type Item = {
-    title: string;
-    text: string;
+type ItemsProps = {
+    items: { title: string, text: string }[];
 };
 
-const Accordion = ({ items }: { items: Item[] }) => {
+const Accordion = ({ items }: ItemsProps) => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggle = (i: number) => {

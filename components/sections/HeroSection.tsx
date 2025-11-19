@@ -11,22 +11,11 @@ import { urlFor } from "@/lib/sanity/urlFor";
 const HeroSection = async () => {
     const data = await client.fetch(heroQuery);
 
-    console.log(data);
-
     const { title, leftPhoto, centerPhoto, rightPhoto, review, featuresList } = data;
-
-    // console.log("before: " + urlFor(data.leftPhoto).url());
-    // console.log("before: " + urlFor(data.centerPhoto).url());
-    // console.log("before: " + urlFor(data.rightPhoto).url());
 
     const leftImg = urlFor(leftPhoto).url();
     const centerImg = urlFor(centerPhoto).url();
     const rightImg = urlFor(rightPhoto).url();
-
-    // console.log("after" + leftImg);
-    // console.log("after" + centerImg);
-    // console.log("after" + leftImg);
-
 
     return (
         <section className="flex flex-col items-center mt-4 px-6 relative pb-28 md:mt-10">

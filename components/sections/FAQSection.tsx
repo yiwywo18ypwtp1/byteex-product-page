@@ -2,42 +2,24 @@ import SectionTitle from "@/components/SectionTitle";
 import Accordion from "@/components/Accordion";
 import ButtonRaitingBlock from "@/components/ButtonRaitingBlock";
 
-const FAQSection = () => {
+import { client } from "@/lib/sanity/client"
+import { faqQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/urlFor";
+
+
+const FAQSection = async () => {
+    const data = await client.fetch(faqQuery);
+
+    const { title, topPhoto, centerPhoto, bottomPhoto, questions } = data
+
     return (
         <section className="flex flex-col gap-4 py-6 md:py-10 md:px-38">
             <div className="w-full px-10 md:hidden">
-                <SectionTitle text="frequently asked questions." />
+                <SectionTitle text={title} />
             </div>
 
             <div className="w-full px-8 md:hidden">
-                <Accordion
-                    items={[
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                        {
-                            title: "Lorem ipsum dolor sit amet",
-                            text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                        },
-                    ]}
-                />
+                <Accordion items={questions} />
             </div>
 
             <div className="md:hidden w-full">
@@ -50,34 +32,7 @@ const FAQSection = () => {
                         <SectionTitle text="Frequently asked questions." centred={false} />
                     </div>
 
-                    <Accordion
-                        items={[
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                            {
-                                title: "Lorem ipsum dolor sit amet",
-                                text: "Our fabrics and garments are made in Portugal. We build strong relationships with our immediate suppliers and visit as often as possible. ",
-                            },
-                        ]}
-                    />
+                    <Accordion items={questions} />
                 </div>
 
                 <div className="flex items-center justify-center my-20 relative w-1/2 ml-14">
@@ -86,15 +41,15 @@ const FAQSection = () => {
                     />
 
                     <div className="absolute -top-32 right-20 z-20">
-                        <img src="img/woman-16.png" alt="" className="w-42 h-64 object-cover" />
+                        <img src={urlFor(topPhoto).url()} alt="" className="w-42 h-64 object-cover" />
                     </div>
 
                     <div className="z-30">
-                        <img src="img/woman-7.png" alt="" className="w-57 h-85 object-cover" />
+                        <img src={urlFor(centerPhoto).url()} alt="" className="w-57 h-85 object-cover" />
                     </div>
 
                     <div className="absolute -bottom-25 left-8 z-20">
-                        <img src="img/woman-10.png" alt="" className="w-55 h-40 object-cover" />
+                        <img src={urlFor(bottomPhoto).url()} alt="" className="w-55 h-40 object-cover" />
                     </div>
 
                     <div

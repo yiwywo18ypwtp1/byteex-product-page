@@ -3,16 +3,25 @@ import HeroGallery from "@/components/HeroGallery";
 import Button from "@/components/Button";
 import Divider from "@/components/Divider";
 
-const FindLoveSection = () => {
+import { client } from "@/lib/sanity/client"
+import { findloveQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/urlFor";
+
+
+const FindLoveSection = async () => {
+    const data = await client.fetch(findloveQuery);
+
+    const { title, text, leftPhoto, centerPhoto, rightPhoto, featuresList } = data
+
     return (
         <section className="w-full flex flex-col items-center gap-6 py-10 bg-linear-to-t from-bge to-white">
-            <SectionTitle text="Find something you love." />
+            <SectionTitle text={title} />
 
-            <p className="text-gry text-sm">Click below to browse our collection!</p>
+            <p className="text-gry text-sm">{text}</p>
 
-            <HeroGallery leftImg="woman-16" centerImg="woman-8" rightImg="woman-5" />
+            <HeroGallery leftImg={urlFor(leftPhoto).url()} centerImg={urlFor(centerPhoto).url()} rightImg={urlFor(rightPhoto).url()} />
 
-            <div className="flex flex-col w-full items-center">
+            <div className="flex flex-col w-full items-center px-6">
                 <Button text="Customize Your Outfit" />
 
                 <div className="w-full h-6 py-1 flex items-center justify-center gap-2">
@@ -28,33 +37,20 @@ const FindLoveSection = () => {
             </div>
 
             <div className="hidden md:flex md:items-center md:justify-center md:w-full md:h-16 md:gap-5">
-                <div className="flex items-center justify-center gap-3 w-50">
-                    <div className="icon-bubble bg-gry/30!">
-                        <img src="svg/delivery-gray.svg" alt="" />
+                {featuresList.map((f: any, i: number) => (
+                    <div
+                        key={i}
+                        className="flex items-center justify-center gap-3 w-50 h-16"
+                    >
+                        <div className="icon-bubble bg-gry/30!">
+                            <img src={f.svgUrl} alt="" />
+                        </div>
+
+                        <p className="text-gry text-sm">{f.text}</p>
+
+                        {i !== featuresList.length - 1 && <Divider vertical />}
                     </div>
-
-                    <p className="text-gry text-sm">FREE Shipping on Orders over $200</p>
-                </div>
-
-                <Divider vertical />
-
-                <div className="flex items-center justify-center gap-3 w-50">
-                    <div className="icon-bubble bg-gry/30!">
-                        <img src="svg/shield.svg" alt="" />
-                    </div>
-
-                    <p className="text-gry text-sm">Over 500+ 5 Star Reviews Online</p>
-                </div>
-
-                <Divider vertical />
-
-                <div className="flex items-center justify-center gap-3 w-50">
-                    <div className="icon-bubble bg-gry/30!">
-                        <img src="svg/cart-gray.svg" alt="" />
-                    </div>
-
-                    <p className="text-gry text-sm">Made ethically and responsibly.</p>
-                </div>
+                ))}
             </div>
         </section>
     )

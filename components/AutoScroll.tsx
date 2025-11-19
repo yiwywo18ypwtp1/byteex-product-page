@@ -23,7 +23,9 @@ const AutoScrollRow = ({ children, speed = 0.4 }: ScrollProps) => {
 
             el.scrollLeft = scrollAmount;
 
-            if (scrollAmount >= el.scrollWidth - el.clientWidth) {
+            const halfWidth = el.scrollWidth / 2;
+
+            if (scrollAmount >= halfWidth) {
                 scrollAmount = 0;
                 el.scrollLeft = 0;
             }
@@ -39,8 +41,18 @@ const AutoScrollRow = ({ children, speed = 0.4 }: ScrollProps) => {
             ref={ref}
             className="w-full overflow-x-scroll scroll-hide whitespace-nowrap"
         >
-            <div className="flex flex-row gap-1">
-                {children}
+            <div
+                ref={ref}
+                className="flex flex-row gap-1"
+                style={{ width: "max-content" }}
+            >
+                <div className="flex flex-row gap-1">
+                    {children}
+                </div>
+
+                <div className="flex flex-row gap-1">
+                    {children}
+                </div>
             </div>
         </div>
     );

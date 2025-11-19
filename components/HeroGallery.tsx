@@ -1,5 +1,3 @@
-import { urlFor } from "@/lib/sanity/urlFor";
-
 type GalleryProps = {
     leftImg: string;
     centerImg: string;
